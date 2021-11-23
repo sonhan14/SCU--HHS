@@ -26,14 +26,14 @@ foo()
 
 
 
-fs.readFile('hello.txt', 'utf-8', (error, data) =>{
-    if(error){
-        console.log('Da co loi!' + error)
-    }else {
-        console.log("Read file successfully!")
-        console.log(data)
-    }
-})
+// fs.readFile('hello.txt', 'utf-8', (error, data) =>{
+//     if(error){
+//         console.log('Da co loi!' + error)
+//     }else {
+//         console.log("Read file successfully!")
+//         console.log(data)
+//     }
+// })
 
 // const port = 5000
 // const readHelloWorld = (error, data) =>{
@@ -46,3 +46,7 @@ fs.readFile('hello.txt', 'utf-8', (error, data) =>{
 // }
 
 // fs.readFile('hello.txt', 'utf-8'. readHelloWorld)
+
+//Synchronous way
+const data = fs.readFileSync('hello.txt', 'utf-8')
+console.log(data)
