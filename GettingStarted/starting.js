@@ -50,3 +50,4 @@ foo()
 //Synchronous way
 const data = fs.readFileSync('hello.txt', 'utf-8')
 console.log(data)
+console.log("Hello i'm son")
