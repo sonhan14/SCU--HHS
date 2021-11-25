@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="mystyle.css"/>
+    <title>Enter your information</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="redText">Enter your basic information</h1>
+        <form action="/intro" method="post">
+            <div class="form-group">
+                <label for="txtName">Name</label>
+                <input class="form-control" type="text" name="txtName" id="txtName">
+            </div>
+            <div class="form-group">
+                <label for="txtAge">Age</label>
+                <input class="form-control" type="text" name="txtAge" id="txtAge">
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Ok" class="btn btn-primary">
+                <input type="reset" value="Clear" class="btn btn-secondary">
+            </div>
+        </form>
+    </div>
+    <img src="nana.jpg" width="100" height="100" alt="">
+</body>
+
+</html>
