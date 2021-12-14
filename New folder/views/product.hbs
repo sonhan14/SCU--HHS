@@ -9,9 +9,13 @@
 <body>
     <h2>New Product</h2>
     <form action="/product" method="post">
-        Name: <input type="text" name="txtName" id="txtName">
+        Name: <input type="text" name="txtName" id="txtName" value="{{oldP.name}}">
         <br>
-        Price: <input type="text" name="txtPrice" id="txtPrice">
+        Price: <input type="text" name="txtPrice" id="txtPrice" value="{{oldP.price}}">
+        <span style="color: red;">{{error}}</span>
+        <br>
+        Picture URL
+        <input type="text" name="txtPicURL" id="txtPicURL" value="{{oldP.pic}}">
         <br>
         <input type="submit" value="Insert">
     </form>
