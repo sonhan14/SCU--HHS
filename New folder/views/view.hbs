@@ -10,7 +10,10 @@
     <h1>View all products</h1>
     <ul>
         {{#each products}}
-            <li>{{name}} - {{price}} - <img src="{{pic}}" width="200" height="100" alt=""></li>
+            <li>{{name}} - {{price}} 
+            <a href="/edit?id={{_id}}"><img src="{{pic}}" width="200" height="100" alt=""></a>
+            <a onclick="return confirm('Are you sure???')" href="/delete?id={{_id}}">Delete</a>
+            </li>
         {{/each}}
     </ul>
 </body>
