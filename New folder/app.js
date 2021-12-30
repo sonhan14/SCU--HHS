@@ -1,10 +1,10 @@
 
 const express = require('express')
 const res = require('express/lib/response')
-const { render, redirect } = require('express/lib/response')
 const async = require('hbs/lib/async')
 const app = express()
 const {MongoClient,ObjectId} = require('mongodb')
+const {getDatabase} = require('./databaseHandle')
 
 const DATABASE_URL = 'mongodb+srv://sonhan14:trinhquocanh011@cluster0.dhmh6.mongodb.net/test'
 const DATABASE_NAME = 'GCH0901_DB'
@@ -79,8 +79,4 @@ const PORT = process.env.PORT || 5000
 app.listen(PORT)
 console.log('Server is running!!!')
 
-async function getDatabase() {
-    const client = await MongoClient.connect(DATABASE_URL)
-    const dbo = client.db(DATABASE_NAME)
-    return dbo
-}
+
