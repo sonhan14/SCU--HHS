@@ -35,6 +35,7 @@
     <div class="border border-primary" style="margin: 50px 150px;">
         <h3 style="color: blue;">LEGOs</h3>
         <br>
+        <span style="color: red;">{{errorDelete}}</span>
         <table class="table">
             <tr>
                 <th>ID</th>
@@ -48,18 +49,16 @@
             <tr>
                 <td>{{_id}}</td>
                 <td>{{name}}</td>
-                <td>{{price}}</td>
-                <td ><img src="{{pic}}" width="200" height="200"></td>
+                <td id="txtPriceTB">{{price}}</td>
+                <td><img src="{{pic}}" width="200" height="200"></td>
                 <td><a href="/edit?id={{_id}}">Edit</a></td>
-                <td><a onclick="return confirm('Are you sure to delete this item???')" href="/delete?id={{_id}}">Delete</a>
+                <td><a onclick="return confirm('Are you sure to delete this item???')"
+                        href="/delete?id={{_id}}">Delete</a>
                 </td>
             </tr>
             {{/each}}
-        </table>        
+        </table>
     </div>
-    <script>
-        alert(errorDelete);
-    </script>
 </body>
 
 </html>

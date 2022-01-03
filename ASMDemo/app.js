@@ -31,7 +31,7 @@ app.post('/product',async (req,res)=>{
     //     res.render('product',{errorName:errorNameMessage,oldP:oldP})
     //     return;
     // }
-    if(nameInput.substring(0,3) != 'LEGO')
+    if(nameInput.substring(0,4) != 'LEGO')
     {
         const errorNameMessage = "Name must be start with 'LEGO'"
         const oldP = {name:nameInput,price:priceInput,pic:picURL}
@@ -58,14 +58,15 @@ app.post('/product',async (req,res)=>{
 
 app.get('/delete',async(req,res)=>{
     const id = req.query.id
-    const price = req.body.txtPriceTable
-    if(price > 100000)
+    console.log("id need delete: " + id)
+    const result = await getDocumentById(id,"Products")
+    if(result.price > 100000)
     {
-        const errorDelete = "Only product < 100k can be deleted"
-        res.render('index',{errorDelete:errorDelete})
+        const errorDelete = "Can't delete price > 300k"
+        const products = await getAll("Products")
+        res.render('index', {errorDelete:errorDelete, products:products})
         return;
     }
-    console.log("id need delete: " + id)
     await deleteDocumentById("Products", id)
     res.redirect('/')
 })
@@ -87,19 +88,11 @@ app.post('/edit',async (req,res)=>{
         res.render('edit',{error:errorMessage, product:result})
         return;
     }
-    const updateValues = {$set : {name:nameInput, price:priceInput, pic:picURL}}
+    const updateValues = {$set : {name:nameInput, price:Number.parseFloat(priceInput), pic:picURL}}
     await updateDocument(id, updateValues,"Products")
     res.redirect('/')
 })
 
-
-
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
 console.log('Server is running!!!')
-
-async function getDatabase() {
-    const client = await MongoClient.connect(DATABASE_URL)
-    const dbo = client.db(DATABASE_NAME)
-    return dbo
-}
